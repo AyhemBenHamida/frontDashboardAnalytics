@@ -1,0 +1,56 @@
+<div class="container-fluid" *ngIf="objectifFormGroup">
+    <div  class="panel panel-default">
+    <div class="panel panel-heading">modify Objectif</div>
+    <div class="panel panel-body">
+        <form  [formGroup]="objectifFormGroup" >
+    
+       
+            <div class="form-group">
+                <label for="titren">Titre</label>
+                <input class="form-control" type="text" name="titre"  formControlName="titre" 
+                [ngClass]="{'is-invalid':submited && objectifFormGroup.controls['titre'].errors}" >
+                <div *ngIf="submited && objectifFormGroup.controls['titre'].errors" class="invalid-feedback" class="alert alert-danger">
+                    <div *ngIf="objectifFormGroup.controls['titre'].errors['required']" class="invalid-feedback">titre obligatoire </div>
+                </div>
+            </div>
+          
+    
+            <div class="form-group">
+                <label for="designation">Description</label>
+                <input class="form-control" type="text" name="description" formControlName="description"  
+                [ngClass]="{'is-invalid':submited && objectifFormGroup.controls['description'].errors}" >
+                <div *ngIf="submited && objectifFormGroup.controls['description'].errors" class="invalid-feedback" class="alert alert-danger">
+                    <div *ngIf="objectifFormGroup.controls['description'].errors['required']" class="invalid-feedback">description obligatoire </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for=" montantEpargne"> montant Epargne</label>
+                <input class="form-control" type="text" name="montantEpargne" formControlName="montantEpargne"  
+                [ngClass]="{'is-invalid':submited && objectifFormGroup.controls['montantEpargne'].errors}" >
+                <div *ngIf="submited && objectifFormGroup.controls['montantEpargne'].errors" class="invalid-feedback" class="alert alert-danger">
+                    <div *ngIf="objectifFormGroup.controls['montantEpargne'].errors['required']" class="invalid-feedback"> montant Epargne obligatoire </div>
+                </div>
+            </div>
+
+           
+                <div class="form-group">
+                  
+                        atteint
+                        <input  class="form-check-input"  type="radio" name="status" formControlName="status"   value="atteint"  /> 
+                      
+                 
+                   echec 
+                     <input  class="form-check-input"  type="radio" name="status"   value="echec" formControlName="status"/>
+                    
+                </div>
+
+           
+
+
+       <span> <button type="submit" class="btn btn-ok" (click)="update_objectif()"> modifié</button></span> <span><button (click)="cancel()" class="btn btn-default"> cancel</button></span> 
+        </form>
+    
+    </div>
+    </div>
+    </div>
+

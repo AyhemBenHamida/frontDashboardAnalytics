@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="panel panel-default">
+      <button type="submit" (click)="addUser()" class="btn btn-success">
+        ajouter Utilisateur
+      </button>
+      <div class="panel panel-heading">Users</div>
+      <div class="panel panel-body">
+        <table class="table table-striped" *ngIf="clients">
+          <thead>
+            <tr>
+              <th>Nom & Prenom</th>
+              <th>Email</th>
+              <th>telephone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let client of clients; let i = index">
+              <td>{{ client.nom }} {{ client.prenom }}</td>
+              <td>{{ client.email }}</td>
+              <td>{{ client.telephone }}</td>
+  
+              <td>
+                <a class="btn btn-danger" (click)="onDelete(client.id)"> Delete</a>
+              </td>
+              <td><a class="btn btn-success" (click)="details(client.id)"> Details</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

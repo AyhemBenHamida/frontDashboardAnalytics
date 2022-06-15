@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  
+
+    <div class="panel-default" *ngIf="objectifs">
+
+      <div class="panel-heading">Liste des objectifs   
+            <div (click)="add_objectif()" class="btn btn-dark">
+        <a class="btn btn-success"  aria-label="Delete" >
+          <i class="fa fa-plus-square" aria-hidden="true"></i>
+        </a> 
+        </div>
+        </div>
+      <div class="panel-body">
+          <div class="card"   *ngFor="let obj of objectifs" style="width: 100%;">
+     
+              <ul  class="list-group list-group-flush">
+                  <li class="list-group-item"> Titre : {{obj.titre}}  
+                    <a class="btn btn-warning" (click)="modify(obj.id)"  aria-label="Delete" >
+                    <i class="fa fa-cog" aria-hidden="true"></i></a> 
+                    <a class="btn btn-danger" (click)="deleteObjectif(obj.id)"  aria-label="Delete" >
+                      <i class="fa fa-trash-o" aria-hidden="true"></i></a> 
+                     </li>
+                <li class="list-group-item">Montant : {{obj.montantEpargne}}</li>
+                <li class="list-group-item">Description : {{obj.description}}</li>
+                <li class="list-group-item">Situation : {{obj.status}}
+              </li>
+            
+              </ul>
+            </div>
+            
+      </div>
+
+</div>
